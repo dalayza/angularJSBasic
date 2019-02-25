@@ -1,0 +1,37 @@
+<h1 class="fa fa-user"> Alumno</h1>
+<h4>{{ alumno.nombre }}: Cod. {{ codigo }}</h4>
+<hr>
+
+<p>
+    <div class="row">
+        <form ng-submit="guardarAlumno()">
+            <div ng-hide="creando">
+                Codigo:
+                <br>
+                <input type="text" class="form-control" ng-model="alumno.codigo" readonly="readonly">
+                <br><br>
+            </div>
+            Nombre:
+            <br>
+            <input type="text" class="form-control" ng-model="alumno.nombre" required placeholder="Nombre del alumno">
+            <br><br>
+            
+            Telefono:
+            <br>
+            <input type="text" class="form-control" ng-model="alumno.telefono" ui-mask="{{ telefonoMask }}" required>
+            <br><br>
+            
+            Direccion:
+            <br>
+            <textarea class="form-control" ng-model="alumno.direccion" row="5" placeholder="Direccion del alumno"></textarea>
+            <br><br>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar Cambios</button>
+            <br>
+            <br>
+            <p class="text-success animated fadeIn fast" ng-show="actualizado">Registro Actualizado</p>
+        </form>
+    </div>
+
+    <br><br><br>
+    {{ alumno | json }}
+</p>
